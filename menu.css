@@ -2,6 +2,14 @@ html {
     box-sizing: border-box;
 }
  
+@media only screen and (min-width: 825px) {
+
+    .therestaurants{
+    display: flex;
+    justify-content: center;
+    }
+}
+
 body {
 background-color: #f6f6f6;
 font-family: 'Roboto', sans-serif;
