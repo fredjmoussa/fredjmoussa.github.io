@@ -6,18 +6,24 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: left;
+      font-family: Helvetica, Arial, sans-serif;
       margin: 40px;
     }
 
-    h1 a {
+    a {
       text-decoration: none;
       color: black;
+      font-size: 18px;
     }
 
-    h1 a:hover {
-      text-decoration: underline;
+    a:hover {
+      color: red;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: normal;
+      margin-bottom: 30px;
     }
 
     .films ul {
@@ -26,20 +32,11 @@
     }
 
     .films li {
-      margin: 10px 0;
+      margin: 8px 0;
       position: relative;
     }
 
-    .films a {
-      text-decoration: none;
-      color: black;
-    }
-
-    .films a:hover {
-      color: gray;
-    }
-
-    /* Image au survol */
+    /* Images hover */
     .films img {
       display: none;
       position: absolute;
@@ -52,68 +49,73 @@
       display: block;
     }
 
-    .contact {
-      margin-top: 50px;
+    footer {
+      position: fixed;
+      bottom: 40px;
+      left: 40px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Nom cliquable -->
-  <h1><a href="bio.html">Fredj Moussa</a></h1>
+  <!-- HOME -->
+  <h1><a href="index.html">Fredj Moussa</a></h1>
 
-  <!-- Liste de films -->
+  <!-- FILMS -->
   <div class="films">
-    <h2>Films</h2>
     <ul>
+      <li>
+        <a href="antidelta.html">Antidelta – 2027</a>
+        <img src="img/antidelta.jpg">
+      </li>
 
       <li>
-        <a href="7sleepers.html">7 Sleepers – (2027)</a>
+        <a href="7sleepers.html">7 Sleepers – 2027</a>
         <img src="img/7sleepers.jpg">
       </li>
 
       <li>
-        <a href="birdy.html">Birdy (2027)</a>
+        <a href="birdy.html">Birdy – 2027</a>
         <img src="img/birdy.jpg">
       </li>
 
       <li>
-        <a href="galactic.html">Galactic Junkyard (2026)</a>
+        <a href="galactic.html">Glactic Junkyard – 2026</a>
         <img src="img/galactic.jpg">
       </li>
 
       <li>
-        <a href="alienists.html">The Alienists (2026)</a>
+        <a href="alienists.html">The Alienists – 2026</a>
         <img src="img/alienists.jpg">
       </li>
 
       <li>
-        <a href="barbar.html">Land of Barbar (2025)</a>
+        <a href="barbar.html">Land of Barbar – 2025</a>
         <img src="img/barbar.jpg">
       </li>
 
       <li>
-        <a href="mirage.html">Mirage, The Inner Sea (2024)</a>
+        <a href="mirage.html">Mirage, The Inner Sea – 2024</a>
         <img src="img/mirage.jpg">
       </li>
 
       <li>
-        <a href="mascot.html">The Mascot (2023)</a>
+        <a href="mascot.html">The Mascot – 2023</a>
         <img src="img/mascot.jpg">
       </li>
 
       <li>
-        <a href="solar.html">Solar Noon (2022)</a>
+        <a href="solar.html">Solar Noon – 2022</a>
         <img src="img/solar.jpg">
       </li>
     </ul>
   </div>
 
-  <!-- Contact -->
-  <div class="contact">
+  <!-- FOOTER -->
+  <footer>
     <a href="contact.html">Contact</a>
-  </div>
+  </footer>
 
 </body>
 </html>
