@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact – Fredj Moussa</title>
 
   <style>
@@ -31,12 +32,30 @@
       bottom: 40px;
       left: 40px;
     }
+
+    @media (max-width: 768px) {
+      body {
+        margin: 20px;
+      }
+
+      a {
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 16px;
+      }
+
+      footer {
+        position: static;
+        margin-top: 40px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- HOME -->
   <h1><a href="index.html">Fredj Moussa</a></h1>
 
   <p>
@@ -45,7 +64,6 @@
     </a>
   </p>
 
-  <!-- FOOTER -->
   <footer>
     <a href="contact.html">Contact</a>
   </footer>
