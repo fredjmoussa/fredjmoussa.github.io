@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7 Sleepers (2027)/title>
+
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      margin: 40px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+    }
+
+    a:hover {
+      color: red;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    .description {
+      max-width: 600px;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    /* Galerie horizontale */
+    .gallery {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .gallery img {
+      height: 200px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    /* scrollbar clean */
+    .gallery::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .gallery::-webkit-scrollbar-thumb {
+      background: black;
+    }
+
+    .info {
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    footer {
+      margin-top: 40px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      body {
+        margin: 20px;
+      }
+
+      a, h1 {
+        font-size: 16px;
+      }
+
+      .gallery img {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HOME -->
+  <h1><a href="index.html">Fredj Moussa</a></h1>
+
+  <!-- TITRE -->
+  <div class="title">
+    <p>7 Sleepers (2027)</p>
+  </div>
+
+  <!-- DESCRIPTION -->
+  <div class="description">
+    <p>
+      On a pirate ship turned tourist attraction in Sousse, former European captives-turned-corsairs reenact their own legend for visitors—until the spectacle fractures, revealing the enduring myths that still shape the Western gaze on the Arab world.
+    </p>
+  </div>
+
+  <!-- GALERIE -->
+  <div class="gallery">
+    <img src="img/antidelta1.jpg">
+    <img src="img/antidelta2.jpg">
+    <img src="img/antidelta3.jpg">
+    <img src="img/antidelta4.jpg">
+  </div>
+
+<!-- INFO -->
+<div class="info">
+  <p>Duration: 11 min</p>
+  <p>Format: Analog</p>
+  <p>Genre: Documentary / Experimental</p>
+</div>
+
+<!-- LINK + PASSWORD -->
+<footer>
+  <p>
+    <a href="#">Link</a><br>
+    Password: **********
+  </p>
+</footer>
+</body>
+</html>
