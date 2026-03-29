@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,7 @@
   <style>
     body {
       font-family: Helvetica, Arial, sans-serif;
-      margin: 0;
-      display: flex;
-      min-height: 100vh;
+      margin: 40px;
     }
 
     a {
@@ -23,16 +21,6 @@
       color: red;
     }
 
-    /* LEFT COLUMN: films list */
-    .left {
-      width: 250px;
-      padding: 40px;
-      box-sizing: border-box;
-      position: relative;
-      z-index: 2; /* on top of the images */
-      background: #fff; /* optional: for contrast */
-    }
-
     h1 {
       font-size: 18px;
       font-weight: normal;
@@ -42,100 +30,63 @@
     .films ul {
       list-style: none;
       padding: 0;
-      margin: 0;
     }
 
     .films li {
       margin: 8px 0;
       position: relative;
-      cursor: pointer;
     }
 
-    /* RIGHT COLUMN: image preview */
-    .preview {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .preview img {
+    /* Images hover (desktop) */
+    .films img {
+      display: none;
       position: absolute;
+      left: 220px;
       top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
+      width: 180px;
+      max-width: 40vw;
     }
 
-    .films li:hover ~ .preview img[data-img="7sleepers"] {
-      opacity: 1;
-    }
-
-    .films li:hover ~ .preview img[data-img="birdy"] {
-      opacity: 1;
-    }
-
-    .films li:hover ~ .preview img[data-img="galactic"] {
-      opacity: 1;
-    }
-
-    .films li:hover ~ .preview img[data-img="alienists"] {
-      opacity: 1;
-    }
-
-    .films li:hover ~ .preview img[data-img="barbar"] {
-      opacity: 1;
-    }
-
-    .films li:hover ~ .preview img[data-img="mirage"] {
-      opacity: 1;
-    }
-
-    .films li:hover ~ .preview img[data-img="mascot"] {
-      opacity: 1;
-    }
-
-    .films li:hover ~ .preview img[data-img="solar"] {
-      opacity: 1;
+    .films li:hover img {
+      display: block;
     }
 
     footer {
       position: fixed;
       bottom: 40px;
       left: 40px;
-      z-index: 3;
     }
 
-    /* MOBILE */
+    /* 📱 MOBILE */
     @media (max-width: 768px) {
       body {
-        flex-direction: column;
+        margin: 20px;
       }
 
-      .left {
+      a {
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 16px;
+      }
+
+      /* images sous le texte au lieu de côté */
+      .films img {
+        position: static;
+        display: none;
+        margin-top: 5px;
         width: 100%;
-        padding: 20px;
-        background: #fff;
+        max-width: 300px;
       }
 
-      .preview {
-        height: 300px;
-        margin-top: 10px;
-      }
-
-      .preview img {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        opacity: 1;
+      .films li:hover img {
+        display: block;
       }
 
       footer {
         position: static;
-        margin-top: 20px;
+        margin-top: 40px;
       }
     }
   </style>
@@ -143,31 +94,19 @@
 
 <body>
 
-  <div class="left">
-    <h1><a href="index.html">Fredj Moussa</a></h1>
-    <div class="films">
-      <ul>
-        <li data-img="7sleepers"><a href="7sleepers.html">7 Sleepers – 2027</a></li>
-        <li data-img="birdy"><a href="birdy.html">Birdy – 2027</a></li>
-        <li data-img="galactic"><a href="galactic.html">Glactic Junkyard – 2026</a></li>
-        <li data-img="alienists"><a href="alienists.html">The Alienists – 2026</a></li>
-        <li data-img="barbar"><a href="barbar.html">Land of Barbar – 2025</a></li>
-        <li data-img="mirage"><a href="mirage.html">Mirage, The Inner Sea – 2024</a></li>
-        <li data-img="mascot"><a href="mascot.html">The Mascot – 2023</a></li>
-        <li data-img="solar"><a href="solar.html">Solar Noon – 2022</a></li>
-      </ul>
-    </div>
-  </div>
+  <h1><a href="index.html">Fredj Moussa</a></h1>
 
-  <div class="preview">
-    <img src="img/7sleepers.jpg" data-img="7sleepers">
-    <img src="img/birdy.jpg" data-img="birdy">
-    <img src="img/galactic.jpg" data-img="galactic">
-    <img src="img/alienists.jpg" data-img="alienists">
-    <img src="img/barbar.jpg" data-img="barbar">
-    <img src="img/mirage.jpg" data-img="mirage">
-    <img src="img/mascot.jpg" data-img="mascot">
-    <img src="img/solarnoon.jpg" data-img="solar">
+  <div class="films">
+    <ul>
+      <li><a href="7sleepers.html">7 Sleepers – 2027</a><img src="img/7sleepers.jpg"></li>
+      <li><a href="birdy.html">Birdy – 2027</a><img src="img/birdy.jpg"></li>
+      <li><a href="galactic.html">Glactic Junkyard – 2026</a><img src="img/galactic.jpg"></li>
+      <li><a href="alienists.html">The Alienists – 2026</a><img src="img/alienists.jpg"></li>
+      <li><a href="barbar.html">Land of Barbar – 2025</a><img src="img/barbar.jpg"></li>
+      <li><a href="mirage.html">Mirage, The Inner Sea – 2024</a><img src="img/mirage.jpg"></li>
+      <li><a href="mascot.html">The Mascot – 2023</a><img src="img/mascot.jpg"></li>
+      <li><a href="solar.html">Solar Noon – 2022</a><img src="img/solarnoon.jpg"></li>
+    </ul>
   </div>
 
   <footer>
