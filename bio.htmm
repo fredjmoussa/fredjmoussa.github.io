@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fredj Moussa – Bio </title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      text-align: left;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .back {
+      margin-bottom: 30px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="index.html" class="back">← Retour</a>
+
+  <h1>Fredj Moussa</h1>
+
+  <p>
+    He studied at Le Fresnoy - Studio national des arts contemporains from 2021 to 2023. 
+    In 2024, he is a resident at Villa Medici in Rome.
+  </p>
+
+  <p>
+    Fredj Moussa’s practice unfolds at the intersection of film and sculpture. 
+    He creates landscapes where fiction becomes a mode of resistance. 
+    Through videos, and costumes made from discarded materials, 
+    he fabricates speculative narratives that blur the lines between document and myth. 
+  </p>
+
+  <p>
+    Fredj Moussa's works has been presented in exhibitions such as the Berlin Biennale (Germany), 
+    Selebe Yoon gallery in Dakar (Senegal), B7L9 Art Station in Tunis (Tunisia), 
+    Nuit Blanche in Paris (France), Kunstraum beim Bahnhof in Bern (Switzerland), among others. 
+    His films have been selected at several international festivals, 
+    most recently at the Toronto International Film Festival (TIFF).
+
+  </p>
+  
+   <p>
+    He was a finalist for the Studio Collector prize at the Photo Days Festival at the MEP in Paris in 2022. 
+    Fredj Moussa receives the CIFRA prize at Loop Fair Barcelona in 2023. 
+    In 2025, he received the Award of the Best World Experimental Documentary Film at Jihlava IDFF.   
+  </p>
+
+</body>
+</html>
