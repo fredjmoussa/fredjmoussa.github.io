@@ -19,7 +19,6 @@ body {
 
 .left {
   width: 320px;
-  z-index: 2;
 }
 
 .right {
@@ -43,6 +42,10 @@ h1 {
   font-weight: normal;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+h1:hover {
+  color: red;
 }
 
 /* LIENS */
@@ -76,11 +79,11 @@ a:hover {
 }
 
 .films li.active .details {
-  max-height: 500px;
+  max-height: 600px;
   opacity: 1;
 }
 
-/* TEXTE PETIT */
+/* TEXTE */
 .description,
 .small {
   font-size: 0.9em;
@@ -97,13 +100,15 @@ a:hover {
 }
 
 .bio.active {
-  max-height: 800px;
+  max-height: 1000px;
   opacity: 1;
 }
 
-/* FOOTER */
+/* CONTACT FIXE */
 footer {
-  margin-top: 40px;
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
 }
 
 #email {
@@ -116,6 +121,7 @@ footer {
 #email.active {
   max-height: 50px;
   opacity: 1;
+  margin-top: 5px;
 }
 
 /* MOBILE */
@@ -129,6 +135,11 @@ footer {
     width: 100%;
     height: auto;
     margin-top: 10px;
+  }
+
+  footer {
+    position: static;
+    margin-top: 40px;
   }
 }
 </style>
@@ -180,7 +191,9 @@ He was a finalist for the Studio Collector prize at the Photo Days Festival at t
 <a>Galactic Junkyard (2026)</a>
 <div class="details">
 <p class="description">
-W/ Corentin Laplanche Tsutsui...
+W/ Corentin Laplanche Tsutsui  
+In southwestern Tunisia, near an oasis on the edge of the desert, a mobile studio travels from place to place. Animated by strange masked figures, it welcomes passing tourists, transforming and disguising them for the occasion. Set against the backdrop of the industrial exploitation of Tunisian land and landscapes, from salt factories to Star Wars film sets, the film weaves a visual parallel between extractivism and cultural expropriation.  
+Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabitants as they subvert the role of extras to which they are often confined in tourist-driven film imaginaries, instead tracking visitors through the very sites used as shooting locations. From the crumbling facades of Mos Espa to the enigmatic installations of an artist in the Chott, an archaeology of the present gradually unfolds.
 </p>
 <p class="small">Link</p>
 </div>
@@ -190,7 +203,7 @@ W/ Corentin Laplanche Tsutsui...
 <a>The Alienists (2026)</a>
 <div class="details">
 <p class="description">
-Hybrid video between ethnography and sci-fi...
+The Alienists is a hybrid video work that straddles the line between ethnographic documentary and speculative fiction. The video gradually shifts toward sci-fi: archaeologists and alienists from another era conduct imaginary excavations in the landscapes of the Sousse region in Tunisia, where they uncover strange fictional artifacts.
 </p>
 <p class="small">Link</p>
 </div>
@@ -200,7 +213,7 @@ Hybrid video between ethnography and sci-fi...
 <a>Land of Barbar (2025)</a>
 <div class="details">
 <p class="description">
-Reinterpretation of the Decameron...
+With the fable-like Land of Barbar, set and shot in Sousse, along the Tunisian coast, artist Fredj Moussa reimagines a passage from the Decameron detailing a confrontation between Italians and North Africans from the latter’s perspective.
 </p>
 <p class="small">Link</p>
 </div>
@@ -210,7 +223,7 @@ Reinterpretation of the Decameron...
 <a>Mirage (2024)</a>
 <div class="details">
 <p class="description">
-Reimagines a colonial project to flood the Sahara...
+Mirage, The Inner Sea is based on a true story from 1875, when a French colonial mission planned to flood the Sahara beneath the Mediterranean Sea. The film reimagines this historical situation, exploring its potential consequences. Set in Gabès (Tunisia), it depicts locals narrating the story of their submerged region over a century later.
 </p>
 <p class="small">Link</p>
 </div>
@@ -228,7 +241,7 @@ Reimagines a colonial project to flood the Sahara...
 <a>Solar Noon (2022)</a>
 <div class="details">
 <p class="description">
-Narrative blending Herodotus and rituals...
+In North Africa, between the end of the Atlas Mountains and the Saharan plateau, a dry lake separates the Mashreq (east) from the Maghreb (west). Against all expectations, it is a landscape that is constantly changing. To its physical mutability, the director adds further layers by inserting fragments of three stories from Herodotus' Histories, traditional narratives and his own text, presenting them to viewers in the form of tableaux vivants laden with symbols and rituals.
 </p>
 <p class="small">Link</p>
 </div>
@@ -259,25 +272,36 @@ Narrative blending Herodotus and rituals...
 </div>
 
 <script>
+function closeAll() {
+  document.querySelectorAll('.films li').forEach(li => li.classList.remove('active'));
+  document.getElementById("bio").classList.remove("active");
+  document.getElementById("email").classList.remove("active");
+}
+
 function toggleFilm(el) {
-  document.querySelectorAll('.films li').forEach(li => {
-    if (li !== el) li.classList.remove('active');
-  });
-  el.classList.toggle('active');
+  const isOpen = el.classList.contains("active");
+  closeAll();
+  if (!isOpen) el.classList.add("active");
+}
+
+function toggleBio() {
+  const bio = document.getElementById("bio");
+  const isOpen = bio.classList.contains("active");
+  closeAll();
+  if (!isOpen) bio.classList.add("active");
+}
+
+function toggleContact() {
+  const email = document.getElementById("email");
+  const isOpen = email.classList.contains("active");
+  closeAll();
+  if (!isOpen) email.classList.add("active");
 }
 
 function showImg(src) {
   const img = document.getElementById("preview");
   img.src = src;
   img.style.display = "block";
-}
-
-function toggleContact() {
-  document.getElementById("email").classList.toggle("active");
-}
-
-function toggleBio() {
-  document.getElementById("bio").classList.toggle("active");
 }
 </script>
 
