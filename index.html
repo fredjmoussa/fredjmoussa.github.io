@@ -5,79 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fredj Moussa</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Helvetica, Arial, sans-serif;
-      margin: 40px;
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    a:hover {
-      color: red;
+      font-family: 'Inter', sans-serif;
+      margin: 60px;
+      background: #f8f8f6;
+      color: #111;
     }
 
     h1 {
       font-size: 18px;
-      font-weight: normal;
-      margin-bottom: 30px;
+      font-weight: 400;
+      margin-bottom: 60px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.4;
+    }
+
+    /* LAYOUT */
+    .films {
+      display: flex;
     }
 
     .films ul {
       list-style: none;
       padding: 0;
+      width: 40%;
     }
 
     .films li {
-      margin: 8px 0;
-      position: relative;
+      margin: 14px 0;
+      cursor: pointer;
     }
 
-    /* IMAGES (desktop) */
-    .films img {
-      display: none;
+    /* IMAGE À DROITE */
+    .preview {
       position: fixed;
-      left: 250px;
-      top: 40px;
-      width: calc(100vw - 300px);
-      height: calc(100vh - 80px);
-      object-fit: cover; 
+      right: 60px;
+      top: 60px;
+      width: 50vw;
+      height: 80vh;
+      pointer-events: none;
     }
 
-    .films li:hover img {
-      display: block;
+    .preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      filter: contrast(1.05) brightness(0.95);
     }
 
-    /* DETAILS (animation fluide) */
+    .preview img.active {
+      opacity: 1;
+    }
+
+    /* DETAILS */
     .details {
       max-height: 0;
       overflow: hidden;
       opacity: 0;
-      transform: translateY(-5px);
-      transition: all 0.4s ease;
+      transform: translateY(-10px);
+      transition: all 0.5s ease;
     }
 
     .films li.active .details {
-      max-height: 300px;
+      max-height: 600px;
       opacity: 1;
       transform: translateY(0);
-      margin-top: 5px;
+      margin-top: 10px;
     }
 
     .description {
+      font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 0.9em;
+      font-size: 0.95em;
+      line-height: 1.5;
+      max-width: 600px;
+      color: #2a2a2a;
+    }
+
+    .details a {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.85em;
     }
 
     footer {
       position: fixed;
-      bottom: 40px;
-      left: 40px;
+      bottom: 60px;
+      left: 60px;
     }
 
     #email {
@@ -85,6 +113,7 @@
       overflow: hidden;
       opacity: 0;
       transition: all 0.4s ease;
+      font-family: 'Playfair Display', serif;
       font-style: italic;
     }
 
@@ -94,35 +123,34 @@
       margin-top: 10px;
     }
 
-    /* 📱 MOBILE */
+    /* MOBILE */
     @media (max-width: 768px) {
       body {
-        margin: 20px;
+        margin: 30px;
       }
 
-      a {
-        font-size: 16px;
+      .films {
+        flex-direction: column;
       }
 
-      h1 {
-        font-size: 16px;
-      }
-
-      .films img {
-        position: static;
-        display: none;
-        margin-top: 5px;
+      .films ul {
         width: 100%;
-        max-width: 300px;
       }
 
-      .films li:hover img {
-        display: block;
+      .preview {
+        position: static;
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+      }
+
+      .preview img {
+        opacity: 1;
       }
 
       footer {
         position: static;
-        margin-top: 40px;
+        margin-top: 60px;
       }
     }
   </style>
@@ -140,7 +168,7 @@
         <img src="img/7sleepers.jpg">
         <div class="details">
           <p class="description">Description du film ici...</p>
-          <a href="#">Voir le film</a>
+          <a href="#">Watch</a>
         </div>
       </li>
 
@@ -149,7 +177,7 @@
         <img src="img/birdy.jpg">
         <div class="details">
           <p class="description">Description du film ici...</p>
-          <a href="#">Link</a>
+          <a href="#">Watch</a>
         </div>
       </li>
 
@@ -157,10 +185,10 @@
         <a>Galactic Junkyard (2026)</a>
         <img src="img/galactic.jpg">
         <div class="details">
-          <p class="description">W/ Corentin Laplanche Tsutsui
-In southwestern Tunisia, near an oasis on the edge of the desert, a mobile studio travels from place to place. Animated by strange masked figures, it welcomes passing tourists, transforming and disguising them for the occasion. Set against the backdrop of the industrial exploitation of Tunisian land and landscapes, from salt factories to Star Wars film sets, the film weaves a visual parallel between extractivism and cultural expropriation.
-Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabitants as they subvert the role of extras to which they are often confined in tourist-driven film imaginaries, instead tracking visitors through the very sites used as shooting locations. From the crumbling facades of Mos Espa to the enigmatic installations of an artist in the Chott, an archaeology of the present gradually unfolds.</p>
-          <a href="#">Link</a>
+          <p class="description">
+W/ Corentin Laplanche Tsutsui — A mobile studio travels through southern Tunisia, staging encounters between tourists and local landscapes shaped by extractivism.
+          </p>
+          <a href="#">Watch</a>
         </div>
       </li>
 
@@ -168,8 +196,10 @@ Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabi
         <a>The Alienists (2026)</a>
         <img src="img/alienists.jpg">
         <div class="details">
-          <p class="description">The Alienists is a hybrid video work that straddles the line between ethnographic documentary and speculative fiction. The video gradually shifts toward sci-fi: archaeologists and alienists from another era conduct imaginary excavations in the landscapes of the Sousse region in Tunisia, where they uncover strange fictional artifacts.</p>
-          <a href="#">Link</a>
+          <p class="description">
+A speculative excavation of Tunisian landscapes through fictional archaeology and science-fiction narratives.
+          </p>
+          <a href="#">Watch</a>
         </div>
       </li>
 
@@ -177,8 +207,10 @@ Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabi
         <a>Land of Barbar (2025)</a>
         <img src="img/barbar.jpg">
         <div class="details">
-          <p class="description">With the fable-like Land of Barbar, set and shot in Sousse, along the Tunisian coast, artist Fredj Moussa reimagines a passage from the Decameron detailing a confrontation between Italians and North Africans from the latter’s perspective. </p>
-          <a href="#">Link</a>
+          <p class="description">
+A re-reading of the Decameron from a North African perspective, set on the Tunisian coast.
+          </p>
+          <a href="#">Watch</a>
         </div>
       </li>
 
@@ -186,8 +218,10 @@ Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabi
         <a>Mirage (2024)</a>
         <img src="img/mirage.jpg">
         <div class="details">
-          <p class="description">Mirage, The Inner Sea is based on a true story from 1875, when a French colonial mission planned to flood the Sahara beneath the Mediterranean Sea. The film reimagines this historical situation, exploring its potential consequences. Set in Gabès (Tunisia), it depicts locals narrating the story of their submerged region over a century later. </p>
-          <a href="#">Link</a>
+          <p class="description">
+A speculative narrative based on a colonial project to flood the Sahara, revisiting submerged histories.
+          </p>
+          <a href="#">Watch</a>
         </div>
       </li>
 
@@ -196,7 +230,7 @@ Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabi
         <img src="img/mascot.jpg">
         <div class="details">
           <p class="description">Description</p>
-          <a href="#">Link</a>
+          <a href="#">Watch</a>
         </div>
       </li>
 
@@ -204,11 +238,10 @@ Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabi
         <a>Solar Noon (2022)</a>
         <img src="img/solarnoon.jpg">
         <div class="details">
-          <p class="description">In North Africa, between the end of the Atlas Mountains and the Saharan plateau, a dry lake separates the Mashreq (east) from the Maghreb (west). Against all expectations, it is a landscape that is constantly changing. To its physical mutability, 
-the director adds further layers by inserting fragments of three stories from Herodotus' Histories, traditional narratives and his own text, presenting them 
-to viewers in the form of tableaux vivants laden with symbols and rituals. 
-</p>
-          <a href="#">Link</a>
+          <p class="description">
+A symbolic cinematic landscape blending Herodotus, oral traditions and staged rituals.
+          </p>
+          <a href="#">Watch</a>
         </div>
       </li>
 
@@ -217,11 +250,17 @@ to viewers in the form of tableaux vivants laden with symbols and rituals.
         <img src="img/lifestyleof.jpg">
         <div class="details">
           <p class="description">Description</p>
-          <a href="#">Link</a>
+          <a href="#">Watch</a>
         </div>
       </li>
 
     </ul>
+
+    <!-- IMAGE PREVIEW -->
+    <div class="preview">
+      <img id="previewImage" src="">
+    </div>
+
   </div>
 
   <footer>
@@ -240,6 +279,20 @@ to viewers in the form of tableaux vivants laden with symbols and rituals.
     function toggleContact() {
       document.getElementById("email").classList.toggle("active");
     }
+
+    const preview = document.getElementById("previewImage");
+
+    document.querySelectorAll(".films li").forEach(li => {
+      li.addEventListener("mouseenter", () => {
+        const img = li.querySelector("img").src;
+        preview.src = img;
+        preview.classList.add("active");
+      });
+
+      li.addEventListener("mouseleave", () => {
+        preview.classList.remove("active");
+      });
+    });
   </script>
 
 </body>
