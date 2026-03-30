@@ -39,13 +39,13 @@
 
     /* Images hover (desktop) */
     .films img {
-      display: none;
-      position: absolute;
-      left: 220px;
-      top: 0;
-      width: 180px;
-      max-width: 300vw;
-    }
+    display: none;
+    position: fixed;
+    left: 250px;
+    top: 40px;
+    width: calc(100vw - 300px);
+    height: calc(100vh - 80px);
+    object-fit: cover; 
 
     .films li:hover img {
       display: block;
