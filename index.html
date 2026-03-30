@@ -5,131 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fredj Moussa</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
-
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      margin: 60px;
-      background: #f8f8f6;
-      color: #111;
-    }
-
-    h1 {
-      font-size: 18px;
-      font-weight: 400;
-      margin-bottom: 40px;
+      font-family: Helvetica, Arial, sans-serif;
+      margin: 40px;
     }
 
     a {
       text-decoration: none;
-      color: inherit;
+      color: black;
+      font-size: 18px;
       cursor: pointer;
-      transition: opacity 0.3s ease;
     }
 
     a:hover {
-      opacity: 0.4;
+      color: red;
     }
 
-    /* BIO */
-    .bio {
-      max-width: 600px;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      line-height: 1.6;
-
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: all 0.6s ease;
-    }
-
-    .bio.active {
-      max-height: 2000px;
-      opacity: 1;
-      margin-bottom: 40px;
-    }
-
-    /* LAYOUT */
-    .films {
-      display: flex;
+    h1 {
+      font-size: 18px;
+      font-weight: normal;
+      margin-bottom: 30px;
     }
 
     .films ul {
       list-style: none;
       padding: 0;
-      width: 40%;
     }
 
     .films li {
-      margin: 14px 0;
-      cursor: pointer;
+      margin: 8px 0;
+      position: relative;
     }
 
-    /* IMAGE À DROITE */
-    .preview {
+    /* IMAGES (desktop) */
+    .films img {
+      display: none;
       position: fixed;
-      right: 60px;
-      top: 60px;
-      width: 50vw;
-      height: 80vh;
-      pointer-events: none;
+      left: 250px;
+      top: 40px;
+      width: calc(100vw - 300px);
+      height: calc(100vh - 80px);
+      object-fit: cover; 
     }
 
-    .preview img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      filter: contrast(1.05) brightness(0.95);
+    .films li:hover img {
+      display: block;
     }
 
-    .preview img.active {
-      opacity: 1;
-    }
-
-    /* DETAILS */
+    /* DETAILS (animation fluide) */
     .details {
       max-height: 0;
       overflow: hidden;
       opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.5s ease;
+      transform: translateY(-5px);
+      transition: all 0.4s ease;
     }
 
     .films li.active .details {
-      max-height: 600px;
+      max-height: 300px;
       opacity: 1;
       transform: translateY(0);
-      margin-top: 10px;
+      margin-top: 5px;
     }
 
-    /* TEXTE DESCRIPTION */
     .description {
-      font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 0.95em;
-      line-height: 1.5;
-      max-width: 600px;
-      color: #2a2a2a;
-    }
-
-    /* LINK = même style que description */
-    .details a {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 0.95em;
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
-      color: #2a2a2a;
+      font-size: 0.9em;
     }
 
     footer {
       position: fixed;
-      bottom: 60px;
-      left: 60px;
+      bottom: 40px;
+      left: 40px;
     }
 
     #email {
@@ -137,7 +85,6 @@
       overflow: hidden;
       opacity: 0;
       transition: all 0.4s ease;
-      font-family: 'Playfair Display', serif;
       font-style: italic;
     }
 
@@ -147,34 +94,35 @@
       margin-top: 10px;
     }
 
-    /* MOBILE */
+    /* 📱 MOBILE */
     @media (max-width: 768px) {
       body {
-        margin: 30px;
+        margin: 20px;
       }
 
-      .films {
-        flex-direction: column;
+      a {
+        font-size: 16px;
       }
 
-      .films ul {
-        width: 100%;
+      h1 {
+        font-size: 16px;
       }
 
-      .preview {
+      .films img {
         position: static;
+        display: none;
+        margin-top: 5px;
         width: 100%;
-        height: auto;
-        margin-top: 20px;
+        max-width: 300px;
       }
 
-      .preview img {
-        opacity: 1;
+      .films li:hover img {
+        display: block;
       }
 
       footer {
         position: static;
-        margin-top: 60px;
+        margin-top: 40px;
       }
     }
   </style>
@@ -182,34 +130,7 @@
 
 <body>
 
-  <h1><a onclick="toggleBio()">Fredj Moussa</a></h1>
-
-  <!-- BIO -->
-  <div id="bio" class="bio">
-    <p>Born 1992. Paris, France<br>Lives and works Sousse, Tunisia</p>
-
-    <p>
-      He graduated from the École nationale supérieure des Arts Décoratifs in Paris in 2018, and resided at the Cité internationale des arts in Paris in 2019. He studied at Le Fresnoy from 2021 to 2023.
-    </p>
-
-    <p>In 2024, he is a resident at Villa Medici in Rome.</p>
-
-    <p>
-      Fredj Moussa’s practice unfolds at the intersection of film and sculpture. He creates landscapes where fiction becomes a mode of resistance.
-    </p>
-
-    <p>
-      Exhibitions include Berlin Biennale, Dakar, Tunis, Paris, Bern, Athens.
-    </p>
-
-    <p>
-      Films shown at international festivals including TIFF.
-    </p>
-
-    <p>
-      Awards include CIFRA prize (2023) and Best Experimental Documentary at Jihlava IDFF (2025).
-    </p>
-  </div>
+  <h1><a href="#">Fredj Moussa</a></h1>
 
   <div class="films">
     <ul>
@@ -218,8 +139,8 @@
         <a>7 Sleepers (2027)</a>
         <img src="img/7sleepers.jpg">
         <div class="details">
-          <p class="description">Description du film ici...</p>
-          <a href="#">Watch</a>
+          <p class="description">Description.</p>
+          <a href="#">Link</a>
         </div>
       </li>
 
@@ -227,8 +148,8 @@
         <a>Birdy (2027)</a>
         <img src="img/birdy.jpg">
         <div class="details">
-          <p class="description">Description du film ici...</p>
-          <a href="#">Watch</a>
+          <p class="description">Description.</p>
+          <a href="#">Link</a>
         </div>
       </li>
 
@@ -236,10 +157,10 @@
         <a>Galactic Junkyard (2026)</a>
         <img src="img/galactic.jpg">
         <div class="details">
-          <p class="description">
-            A mobile studio travels through southern Tunisia, staging encounters between tourists and landscapes shaped by extractivism.
-          </p>
-          <a href="#">Watch</a>
+          <p class="description">W/ Corentin Laplanche Tsutsui
+In southwestern Tunisia, near an oasis on the edge of the desert, a mobile studio travels from place to place. Animated by strange masked figures, it welcomes passing tourists, transforming and disguising them for the occasion. Set against the backdrop of the industrial exploitation of Tunisian land and landscapes, from salt factories to Star Wars film sets, the film weaves a visual parallel between extractivism and cultural expropriation.
+Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabitants as they subvert the role of extras to which they are often confined in tourist-driven film imaginaries, instead tracking visitors through the very sites used as shooting locations. From the crumbling facades of Mos Espa to the enigmatic installations of an artist in the Chott, an archaeology of the present gradually unfolds.</p>
+          <a href="#">Link</a>
         </div>
       </li>
 
@@ -247,20 +168,60 @@
         <a>The Alienists (2026)</a>
         <img src="img/alienists.jpg">
         <div class="details">
-          <p class="description">
-            A speculative excavation of Tunisian landscapes through fictional archaeology.
-          </p>
-          <a href="#">Watch</a>
+          <p class="description">The Alienists is a hybrid video work that straddles the line between ethnographic documentary and speculative fiction. The video gradually shifts toward sci-fi: archaeologists and alienists from another era conduct imaginary excavations in the landscapes of the Sousse region in Tunisia, where they uncover strange fictional artifacts.</p>
+          <a href="#">Link</a>
+        </div>
+      </li>
+
+      <li onclick="toggleFilm(this)">
+        <a>Land of Barbar (2025)</a>
+        <img src="img/barbar.jpg">
+        <div class="details">
+          <p class="description">With the fable-like Land of Barbar, set and shot in Sousse, along the Tunisian coast, artist Fredj Moussa reimagines a passage from the Decameron detailing a confrontation between Italians and North Africans from the latter’s perspective. </p>
+          <a href="#">Link</a>
+        </div>
+      </li>
+
+      <li onclick="toggleFilm(this)">
+        <a>Mirage (2024)</a>
+        <img src="img/mirage.jpg">
+        <div class="details">
+          <p class="description">Mirage, The Inner Sea is based on a true story from 1875, when a French colonial mission planned to flood the Sahara beneath the Mediterranean Sea. The film reimagines this historical situation, exploring its potential consequences. Set in Gabès (Tunisia), it depicts locals narrating the story of their submerged region over a century later. </p>
+          <a href="#">Link</a>
+        </div>
+      </li>
+
+      <li onclick="toggleFilm(this)">
+        <a>The Mascot (2023)</a>
+        <img src="img/mascot.jpg">
+        <div class="details">
+          <p class="description">Description</p>
+          <a href="#">Link</a>
+        </div>
+      </li>
+
+      <li onclick="toggleFilm(this)">
+        <a>Solar Noon (2022)</a>
+        <img src="img/solarnoon.jpg">
+        <div class="details">
+          <p class="description">In North Africa, between the end of the Atlas Mountains and the Saharan plateau, a dry lake separates the Mashreq (east) from the Maghreb (west). Against all expectations, it is a landscape that is constantly changing. To its physical mutability, 
+the director adds further layers by inserting fragments of three stories from Herodotus' Histories, traditional narratives and his own text, presenting them 
+to viewers in the form of tableaux vivants laden with symbols and rituals. 
+</p>
+          <a href="#">Link</a>
+        </div>
+      </li>
+
+      <li onclick="toggleFilm(this)">
+        <a>Lifestyle Of (2021)</a>
+        <img src="img/lifestyleof.jpg">
+        <div class="details">
+          <p class="description">Description</p>
+          <a href="#">Link</a>
         </div>
       </li>
 
     </ul>
-
-    <!-- IMAGE -->
-    <div class="preview">
-      <img id="previewImage" src="">
-    </div>
-
   </div>
 
   <footer>
@@ -279,24 +240,6 @@
     function toggleContact() {
       document.getElementById("email").classList.toggle("active");
     }
-
-    function toggleBio() {
-      document.getElementById("bio").classList.toggle("active");
-    }
-
-    const preview = document.getElementById("previewImage");
-
-    document.querySelectorAll(".films li").forEach(li => {
-      li.addEventListener("mouseenter", () => {
-        const img = li.querySelector("img").src;
-        preview.src = img;
-        preview.classList.add("active");
-      });
-
-      li.addEventListener("mouseleave", () => {
-        preview.classList.remove("active");
-      });
-    });
   </script>
 
 </body>
