@@ -18,7 +18,7 @@
     h1 {
       font-size: 18px;
       font-weight: 400;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
 
     a {
@@ -30,6 +30,25 @@
 
     a:hover {
       opacity: 0.4;
+    }
+
+    /* BIO */
+    .bio {
+      max-width: 600px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      line-height: 1.6;
+
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+
+    .bio.active {
+      max-height: 2000px;
+      opacity: 1;
+      margin-bottom: 40px;
     }
 
     /* LAYOUT */
@@ -87,6 +106,7 @@
       margin-top: 10px;
     }
 
+    /* TEXTE DESCRIPTION */
     .description {
       font-family: 'Playfair Display', serif;
       font-style: italic;
@@ -96,10 +116,14 @@
       color: #2a2a2a;
     }
 
+    /* LINK = même style que description */
     .details a {
       display: inline-block;
-      margin-top: 8px;
-      font-size: 0.85em;
+      margin-top: 6px;
+      font-size: 0.95em;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #2a2a2a;
     }
 
     footer {
@@ -158,7 +182,34 @@
 
 <body>
 
-  <h1><a href="#">Fredj Moussa</a></h1>
+  <h1><a onclick="toggleBio()">Fredj Moussa</a></h1>
+
+  <!-- BIO -->
+  <div id="bio" class="bio">
+    <p>Born 1992. Paris, France<br>Lives and works Sousse, Tunisia</p>
+
+    <p>
+      He graduated from the École nationale supérieure des Arts Décoratifs in Paris in 2018, and resided at the Cité internationale des arts in Paris in 2019. He studied at Le Fresnoy from 2021 to 2023.
+    </p>
+
+    <p>In 2024, he is a resident at Villa Medici in Rome.</p>
+
+    <p>
+      Fredj Moussa’s practice unfolds at the intersection of film and sculpture. He creates landscapes where fiction becomes a mode of resistance.
+    </p>
+
+    <p>
+      Exhibitions include Berlin Biennale, Dakar, Tunis, Paris, Bern, Athens.
+    </p>
+
+    <p>
+      Films shown at international festivals including TIFF.
+    </p>
+
+    <p>
+      Awards include CIFRA prize (2023) and Best Experimental Documentary at Jihlava IDFF (2025).
+    </p>
+  </div>
 
   <div class="films">
     <ul>
@@ -186,7 +237,7 @@
         <img src="img/galactic.jpg">
         <div class="details">
           <p class="description">
-W/ Corentin Laplanche Tsutsui — A mobile studio travels through southern Tunisia, staging encounters between tourists and local landscapes shaped by extractivism.
+            A mobile studio travels through southern Tunisia, staging encounters between tourists and landscapes shaped by extractivism.
           </p>
           <a href="#">Watch</a>
         </div>
@@ -197,66 +248,15 @@ W/ Corentin Laplanche Tsutsui — A mobile studio travels through southern Tunis
         <img src="img/alienists.jpg">
         <div class="details">
           <p class="description">
-A speculative excavation of Tunisian landscapes through fictional archaeology and science-fiction narratives.
+            A speculative excavation of Tunisian landscapes through fictional archaeology.
           </p>
-          <a href="#">Watch</a>
-        </div>
-      </li>
-
-      <li onclick="toggleFilm(this)">
-        <a>Land of Barbar (2025)</a>
-        <img src="img/barbar.jpg">
-        <div class="details">
-          <p class="description">
-A re-reading of the Decameron from a North African perspective, set on the Tunisian coast.
-          </p>
-          <a href="#">Watch</a>
-        </div>
-      </li>
-
-      <li onclick="toggleFilm(this)">
-        <a>Mirage (2024)</a>
-        <img src="img/mirage.jpg">
-        <div class="details">
-          <p class="description">
-A speculative narrative based on a colonial project to flood the Sahara, revisiting submerged histories.
-          </p>
-          <a href="#">Watch</a>
-        </div>
-      </li>
-
-      <li onclick="toggleFilm(this)">
-        <a>The Mascot (2023)</a>
-        <img src="img/mascot.jpg">
-        <div class="details">
-          <p class="description">Description</p>
-          <a href="#">Watch</a>
-        </div>
-      </li>
-
-      <li onclick="toggleFilm(this)">
-        <a>Solar Noon (2022)</a>
-        <img src="img/solarnoon.jpg">
-        <div class="details">
-          <p class="description">
-A symbolic cinematic landscape blending Herodotus, oral traditions and staged rituals.
-          </p>
-          <a href="#">Watch</a>
-        </div>
-      </li>
-
-      <li onclick="toggleFilm(this)">
-        <a>Lifestyle Of (2021)</a>
-        <img src="img/lifestyleof.jpg">
-        <div class="details">
-          <p class="description">Description</p>
           <a href="#">Watch</a>
         </div>
       </li>
 
     </ul>
 
-    <!-- IMAGE PREVIEW -->
+    <!-- IMAGE -->
     <div class="preview">
       <img id="previewImage" src="">
     </div>
@@ -278,6 +278,10 @@ A symbolic cinematic landscape blending Herodotus, oral traditions and staged ri
 
     function toggleContact() {
       document.getElementById("email").classList.toggle("active");
+    }
+
+    function toggleBio() {
+      document.getElementById("bio").classList.toggle("active");
     }
 
     const preview = document.getElementById("previewImage");
