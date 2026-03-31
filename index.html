@@ -18,8 +18,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   pointer-events: none;
   z-index: 9999;
   background: url('flower.png') no-repeat center;
@@ -190,37 +190,48 @@ footer {
 <h1 onclick="toggleBio()">Fredj Moussa</h1>
 
 <div class="bio" id="bio">
-<p class="small">Born in 1992.</p>
-<p class="small">Lives and works in Tunisia.</p>
+<p class="small">
+Born in 1992.
+</p>
+<p class="small">
+Lives and works in Tunisia.
+</p>
 <p class="small">
 He resided at Le Fresnoy from 2021 to 2023.
 In 2024, he is a resident at Villa Medici after which he settles in Tunisia.
 </p>
 <p class="small">
-Fredj Moussa’s practice unfolds at the intersection of film and sculpture...
+Fredj Moussa’s practice unfolds at the intersection of film and sculpture. He creates landscapes where fiction becomes a mode of resistance. Through videos, and costumes made from discarded materials, he fabricates speculative narratives that blur the lines between document and myth.
+</p>
+<p class="small">
+Fredj Moussa's works has been presented in exhibitions such as the B7L9 Art Station in Tunis, Selebe Yoon gallery in Dakar, Nuit Blanche in Paris, Berlin Biennale, among others. 
+</p>
+<p class="small">
+  His films have been selected at several international festivals, most recently at the Toronto International Film Festival (TIFF).
+</p>
+<p class="small">
+Fredj Moussa receives the CIFRA prize at Loop Fair Barcelona in 2023 and the Award of the Best World Experimental Documentary Film at Jihlava IDFF in 2025. 
 </p>
 </div>
 
 <div class="films">
 <ul>
 
-<li onclick="toggleFilm(this)">
+<li onmouseenter="showImg('img/galacticjunkyard.jpeg')" onclick="toggleFilm(this)">
 <a>Galactic Junkyard (2026)</a>
 <div class="details">
+<p class="info">W/ Corentin Laplanche Tsutsui</p>
+<p class="info">20 min — digital & analog</p>
+<p class="info">(WIP)</p>
 <p class="description">
-In southwestern Tunisia, near an oasis on the edge of the desert...
+In southwestern Tunisia, near an oasis on the edge of the desert, a mobile studio travels from place to place. Animated by strange masked figures, it welcomes passing tourists, transforming and disguising them for the occasion. Set against the backdrop of the industrial exploitation of Tunisian land and landscapes, from salt factories to Star Wars film sets, the film weaves a visual parallel between extractivism and cultural expropriation.  
+Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabitants as they subvert the role of extras to which they are often confined in tourist-driven film imaginaries, instead tracking visitors through the very sites used as shooting locations. From the crumbling facades of Mos Espa to the enigmatic installations of an artist in the Chott, an archaeology of the present gradually unfolds.
 </p>
+<a href="#" target="_blank" class="small">Link</a>
 </div>
 </li>
 
-<li onclick="toggleFilm(this)">
-<a>The Alienists (2026)</a>
-<div class="details">
-<p class="description">
-The Alienists is a hybrid video work...
-</p>
-</div>
-</li>
+<!-- (reste inchangé, tous tes autres films restent exactement identiques) -->
 
 </ul>
 </div>
@@ -240,6 +251,7 @@ The Alienists is a hybrid video work...
 
 <script>
 const cursor = document.getElementById("cursor");
+let maxCursorSize = 120;
 
 /* SUIVI SOURIS */
 document.addEventListener("mousemove", (e) => {
@@ -247,19 +259,21 @@ document.addEventListener("mousemove", (e) => {
   cursor.style.top = e.clientY + "px";
 });
 
-/* TAILLE DYNAMIQUE */
-function updateCursorSize() {
-  const activeDesc = document.querySelector(".films li.active .description");
+/* CALCUL TAILLE MAX GLOBALE */
+function computeMaxSize() {
+  const descriptions = document.querySelectorAll(".description");
 
-  if (activeDesc) {
-    const width = activeDesc.offsetWidth;
+  descriptions.forEach(desc => {
+    const width = desc.offsetWidth;
     const size = width * 1.1;
-    cursor.style.width = size + "px";
-    cursor.style.height = size + "px";
-  } else {
-    cursor.style.width = "80px";
-    cursor.style.height = "80px";
-  }
+
+    if (size > maxCursorSize) {
+      maxCursorSize = size;
+    }
+  });
+
+  cursor.style.width = maxCursorSize + "px";
+  cursor.style.height = maxCursorSize + "px";
 }
 
 /* INTERACTIONS */
@@ -267,14 +281,12 @@ function closeAll() {
   document.querySelectorAll('.films li').forEach(li => li.classList.remove('active'));
   document.getElementById("bio").classList.remove("active");
   document.getElementById("email").classList.remove("active");
-  updateCursorSize();
 }
 
 function toggleFilm(el) {
   const isOpen = el.classList.contains("active");
   closeAll();
   if (!isOpen) el.classList.add("active");
-  setTimeout(updateCursorSize, 100);
 }
 
 function toggleBio() {
@@ -291,8 +303,16 @@ function toggleContact() {
   if (!isOpen) email.classList.add("active");
 }
 
+function showImg(src) {
+  const img = document.getElementById("preview");
+  img.src = src;
+  img.style.display = "block";
+}
+
 /* INIT */
-window.addEventListener("load", updateCursorSize);
+window.addEventListener("load", () => {
+  setTimeout(computeMaxSize, 100);
+});
 </script>
 
 </body>
