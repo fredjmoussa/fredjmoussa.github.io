@@ -231,7 +231,69 @@ Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabi
 </div>
 </li>
 
-<!-- (reste inchangé, tous tes autres films restent exactement identiques) -->
+<li onmouseenter="showImg('img/thealienists.jpeg')" onclick="toggleFilm(this)">
+<a>The Alienists (2026)</a>
+<div class="details">
+<p class="info">11 min — analog</p>
+<p class="info">(WIP)</p>
+<p class="description">
+The Alienists is a hybrid video work that straddles the line between ethnographic documentary and speculative fiction. The video gradually shifts toward sci-fi: archaeologists and alienists from another era conduct imaginary excavations in the landscapes of the Sousse region in Tunisia, where they uncover strange fictional artifacts.
+</p>
+<a href="#" target="_blank" class="small">Link</a>
+</div>
+</li>
+
+<li onmouseenter="showImg('img/landofbarbar.jpeg')" onclick="toggleFilm(this)">
+<a>Land of Barbar (2025)</a>
+<div class="details">
+<p class="info">11 min — analog</p>
+<p class="description">
+With the fable-like Land of Barbar, set and shot in Sousse, along the Tunisian coast, artist Fredj Moussa reimagines a passage from the Decameron detailing a confrontation between Italians and North Africans from the latter’s perspective.
+</p>
+<a href="#" target="_blank" class="small">Link</a>
+</div>
+</li>
+
+<li onmouseenter="showImg('img/mirage.jpeg')" onclick="toggleFilm(this)">
+<a>Mirage (2024)</a>
+<div class="details">
+<p class="info">11 min — analog</p>
+<p class="description">
+Mirage, The Inner Sea is based on a true story from 1875, when a French colonial mission planned to flood the Sahara beneath the Mediterranean Sea. The film reimagines this historical situation, exploring its potential consequences. Set in Gabès (Tunisia), it depicts locals narrating the story of their submerged region over a century later.
+</p>
+<a href="#" target="_blank" class="small">Link</a>
+</div>
+</li>
+
+<li onmouseenter="showImg('img/themascot.jpeg')" onclick="toggleFilm(this)">
+<a>The Mascot (2023)</a>
+<div class="details">
+<p class="info">10 min — digital</p>
+<p class="description">Labib is a mascot created in 1992 and used for twenty years as an environmental mascot in Tunisia. However, associated with the Ben Ali dictatorship, it was removed from its functions by the new Minister of the Environment after the Arab Spring revolution. In 2022, its return was officially announced.</p>
+<a href="#" target="_blank" class="small">Link</a>
+</div>
+</li>
+
+<li onmouseenter="showImg('img/solarnoon.jpeg')" onclick="toggleFilm(this)">
+<a>Solar Noon (2022)</a>
+<div class="details">
+<p class="info">11 min — analog</p>
+<p class="description">
+In North Africa, between the end of the Atlas Mountains and the Saharan plateau, a dry lake separates the Mashreq (east) from the Maghreb (west). Against all expectations, it is a landscape that is constantly changing. To its physical mutability, the director adds further layers by inserting fragments of three stories from Herodotus' Histories, traditional narratives and his own text, presenting them to viewers in the form of tableaux vivants laden with symbols and rituals.
+</p>
+<a href="#" target="_blank" class="small">Link</a>
+</div>
+</li>
+
+<li onmouseenter="showImg('img/Lifestyleof.jpg')" onclick="toggleFilm(this)">
+<a>Lifestyle of (2021)</a>
+<div class="details">
+<p class="info">5 min — digital</p>
+<p class="description">A mental map unbound by borders forms the backdrop of Lifestyle of. Set in a shifting, undefined space, the film follows two individuals from Ivory Coast living in Tunisia as they construct a fictional narrative rooted in their own experiences. Blurring the line between documentary and invention, the story unfolds in two parts: the imagined crossing of a desert on the back of a donkey that dies along the way, and the continuation of a journey toward France. Suspended between plausibility and fabrication, the film explores migration, storytelling, and the fragile boundary between lived reality and constructed myth.
+</p>
+<a href="#" target="_blank" class="small">Link</a>
+</div>
+</li>
 
 </ul>
 </div>
@@ -253,13 +315,11 @@ Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabi
 const cursor = document.getElementById("cursor");
 let maxCursorSize = 120;
 
-/* SUIVI SOURIS */
 document.addEventListener("mousemove", (e) => {
   cursor.style.left = e.clientX + "px";
   cursor.style.top = e.clientY + "px";
 });
 
-/* CALCUL TAILLE MAX GLOBALE */
 function computeMaxSize() {
   const descriptions = document.querySelectorAll(".description");
 
@@ -276,7 +336,6 @@ function computeMaxSize() {
   cursor.style.height = maxCursorSize + "px";
 }
 
-/* INTERACTIONS */
 function closeAll() {
   document.querySelectorAll('.films li').forEach(li => li.classList.remove('active'));
   document.getElementById("bio").classList.remove("active");
@@ -309,7 +368,6 @@ function showImg(src) {
   img.style.display = "block";
 }
 
-/* INIT */
 window.addEventListener("load", () => {
   setTimeout(computeMaxSize, 100);
 });
