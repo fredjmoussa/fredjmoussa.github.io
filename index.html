@@ -10,6 +10,21 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
   margin: 40px;
+  cursor: none;
+}
+
+/* CURSEUR CUSTOM */
+#cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  z-index: 9999;
+  background: url('flower.png') no-repeat center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
 }
 
 /* LAYOUT */
@@ -137,6 +152,14 @@ footer {
 
 /* MOBILE */
 @media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+
+  #cursor {
+    display: none;
+  }
+
   .container {
     flex-direction: column;
   }
@@ -158,6 +181,8 @@ footer {
 
 <body>
 
+<div id="cursor"></div>
+
 <div class="container">
 
 <div class="left">
@@ -165,108 +190,35 @@ footer {
 <h1 onclick="toggleBio()">Fredj Moussa</h1>
 
 <div class="bio" id="bio">
-<p class="small">
-Born in 1992.
-</p>
-<p class="small">
-Lives and works in Tunisia.
-</p>
+<p class="small">Born in 1992.</p>
+<p class="small">Lives and works in Tunisia.</p>
 <p class="small">
 He resided at Le Fresnoy from 2021 to 2023.
 In 2024, he is a resident at Villa Medici after which he settles in Tunisia.
 </p>
 <p class="small">
-Fredj Moussa’s practice unfolds at the intersection of film and sculpture. He creates landscapes where fiction becomes a mode of resistance. Through videos, and costumes made from discarded materials, he fabricates speculative narratives that blur the lines between document and myth.
-</p>
-<p class="small">
-Fredj Moussa's works has been presented in exhibitions such as the B7L9 Art Station in Tunis, Selebe Yoon gallery in Dakar, Nuit Blanche in Paris, Berlin Biennale, among others. 
-</p>
-<p class="small">
-  His films have been selected at several international festivals, most recently at the Toronto International Film Festival (TIFF).
-</p>
-<p class="small">
-Fredj Moussa receives the CIFRA prize at Loop Fair Barcelona in 2023 and the Award of the Best World Experimental Documentary Film at Jihlava IDFF in 2025. 
+Fredj Moussa’s practice unfolds at the intersection of film and sculpture...
 </p>
 </div>
 
 <div class="films">
 <ul>
 
-<li onmouseenter="showImg('img/galacticjunkyard.jpeg')" onclick="toggleFilm(this)">
+<li onclick="toggleFilm(this)">
 <a>Galactic Junkyard (2026)</a>
 <div class="details">
-<p class="info">W/ Corentin Laplanche Tsutsui</p>
-<p class="info">20 min — digital & analog</p>
-<p class="info">(WIP)</p>
 <p class="description">
-In southwestern Tunisia, near an oasis on the edge of the desert, a mobile studio travels from place to place. Animated by strange masked figures, it welcomes passing tourists, transforming and disguising them for the occasion. Set against the backdrop of the industrial exploitation of Tunisian land and landscapes, from salt factories to Star Wars film sets, the film weaves a visual parallel between extractivism and cultural expropriation.  
-Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabitants as they subvert the role of extras to which they are often confined in tourist-driven film imaginaries, instead tracking visitors through the very sites used as shooting locations. From the crumbling facades of Mos Espa to the enigmatic installations of an artist in the Chott, an archaeology of the present gradually unfolds.
+In southwestern Tunisia, near an oasis on the edge of the desert...
 </p>
-<a href="#" target="_blank" class="small">Link</a>
 </div>
 </li>
 
-<li onmouseenter="showImg('img/thealienists.jpeg')" onclick="toggleFilm(this)">
+<li onclick="toggleFilm(this)">
 <a>The Alienists (2026)</a>
 <div class="details">
-<p class="info">11 min — analog</p>
-<p class="info">(WIP)</p>
 <p class="description">
-The Alienists is a hybrid video work that straddles the line between ethnographic documentary and speculative fiction. The video gradually shifts toward sci-fi: archaeologists and alienists from another era conduct imaginary excavations in the landscapes of the Sousse region in Tunisia, where they uncover strange fictional artifacts.
+The Alienists is a hybrid video work...
 </p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/landofbarbar.jpeg')" onclick="toggleFilm(this)">
-<a>Land of Barbar (2025)</a>
-<div class="details">
-<p class="info">11 min — analog</p>
-<p class="description">
-With the fable-like Land of Barbar, set and shot in Sousse, along the Tunisian coast, artist Fredj Moussa reimagines a passage from the Decameron detailing a confrontation between Italians and North Africans from the latter’s perspective.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/mirage.jpeg')" onclick="toggleFilm(this)">
-<a>Mirage (2024)</a>
-<div class="details">
-<p class="info">11 min — analog</p>
-<p class="description">
-Mirage, The Inner Sea is based on a true story from 1875, when a French colonial mission planned to flood the Sahara beneath the Mediterranean Sea. The film reimagines this historical situation, exploring its potential consequences. Set in Gabès (Tunisia), it depicts locals narrating the story of their submerged region over a century later.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/themascot.jpeg')" onclick="toggleFilm(this)">
-<a>The Mascot (2023)</a>
-<div class="details">
-<p class="info">10 min — digital</p>
-<p class="description">Labib is a mascot created in 1992 and used for twenty years as an environmental mascot in Tunisia. However, associated with the Ben Ali dictatorship, it was removed from its functions by the new Minister of the Environment after the Arab Spring revolution. In 2022, its return was officially announced.</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/solarnoon.jpeg')" onclick="toggleFilm(this)">
-<a>Solar Noon (2022)</a>
-<div class="details">
-<p class="info">11 min — analog</p>
-<p class="description">
-In North Africa, between the end of the Atlas Mountains and the Saharan plateau, a dry lake separates the Mashreq (east) from the Maghreb (west). Against all expectations, it is a landscape that is constantly changing. To its physical mutability, the director adds further layers by inserting fragments of three stories from Herodotus' Histories, traditional narratives and his own text, presenting them to viewers in the form of tableaux vivants laden with symbols and rituals.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/Lifestyleof.jpg')" onclick="toggleFilm(this)">
-<a>Lifestyle of (2021)</a>
-<div class="details">
-<p class="info">5 min — digital</p>
-<p class="description">A mental map unbound by borders forms the backdrop of Lifestyle of. Set in a shifting, undefined space, the film follows two individuals from Ivory Coast living in Tunisia as they construct a fictional narrative rooted in their own experiences. Blurring the line between documentary and invention, the story unfolds in two parts: the imagined crossing of a desert on the back of a donkey that dies along the way, and the continuation of a journey toward France. Suspended between plausibility and fabrication, the film explores migration, storytelling, and the fragile boundary between lived reality and constructed myth.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
 </div>
 </li>
 
@@ -287,16 +239,42 @@ In North Africa, between the end of the Atlas Mountains and the Saharan plateau,
 </div>
 
 <script>
+const cursor = document.getElementById("cursor");
+
+/* SUIVI SOURIS */
+document.addEventListener("mousemove", (e) => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+/* TAILLE DYNAMIQUE */
+function updateCursorSize() {
+  const activeDesc = document.querySelector(".films li.active .description");
+
+  if (activeDesc) {
+    const width = activeDesc.offsetWidth;
+    const size = width * 1.1;
+    cursor.style.width = size + "px";
+    cursor.style.height = size + "px";
+  } else {
+    cursor.style.width = "80px";
+    cursor.style.height = "80px";
+  }
+}
+
+/* INTERACTIONS */
 function closeAll() {
   document.querySelectorAll('.films li').forEach(li => li.classList.remove('active'));
   document.getElementById("bio").classList.remove("active");
   document.getElementById("email").classList.remove("active");
+  updateCursorSize();
 }
 
 function toggleFilm(el) {
   const isOpen = el.classList.contains("active");
   closeAll();
   if (!isOpen) el.classList.add("active");
+  setTimeout(updateCursorSize, 100);
 }
 
 function toggleBio() {
@@ -313,11 +291,8 @@ function toggleContact() {
   if (!isOpen) email.classList.add("active");
 }
 
-function showImg(src) {
-  const img = document.getElementById("preview");
-  img.src = src;
-  img.style.display = "block";
-}
+/* INIT */
+window.addEventListener("load", updateCursorSize);
 </script>
 
 </body>
