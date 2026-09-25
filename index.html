@@ -1,376 +1,81 @@
+Voici le code simplifié à son maximum. Tout le reste du contenu (titre, bio, liste de films, visuels) a été supprimé pour ne conserver que l'adresse e-mail en texte brut, animée façon DVD screensaver avec changement de couleur à chaque rebond.
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Fredj Moussa</title>
+<title>fredjmoussastudio@gmail.com</title>
 
 <style>
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  margin: 40px;
-  cursor: none;
-}
-
-/* CURSEUR CUSTOM */
-#cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 120px;
-  height: 120px;
-  pointer-events: none;
-  z-index: 9999;
-  background: url('flower.png') no-repeat center;
-  background-size: contain;
-  transform: translate(-50%, -50%);
-}
-
-/* LAYOUT */
-.container {
-  display: flex;
-}
-
-.left {
-  width: 320px;
-  padding-right: 40px; 
-}
-
-.right {
-  flex: 1;
-}
-
-/* IMAGE */
-.preview {
-  position: fixed;
-  right: 40px;
-  top: 40px;
-  width: calc(100vw - 400px);
-  height: calc(100vh - 80px);
-  object-fit: cover;
-  display: none;
-}
-
-/* TITRE */
-h1 {
-  font-size: 18px;
-  font-weight: normal;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-h1:hover {
-  color: red;
-}
-
-/* LIENS */
-a {
-  text-decoration: none;
-  color: black;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-a:hover {
-  color: red;
-}
-
-/* LISTE */
-.films ul {
-  list-style: none;
+  margin: 0;
   padding: 0;
-}
-
-.films li {
-  margin: 8px 0;
-}
-
-/* DETAILS */
-.details {
-  max-height: 0;
+  background-color: #ffffff;
   overflow: hidden;
-  opacity: 0;
-  transition: 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
-.films li.active .details {
-  max-height: 600px;
-  opacity: 1;
-}
-
-/* TEXTE */
-.description,
-.small {
-  font-size: 0.9em;
-  font-style: italic;
-  margin: 2px 0;
-  max-width: 260px; 
-}
-
-/* LIGNE INFO */
-.info {
-  font-size: 0.75em;
-  margin: 2px 0 4px 0;
-  opacity: 0.6;
-  max-width: 260px; 
-}
-
-/* BIO */
-.bio {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: 0.3s ease;
-  max-width: 320px; 
-}
-
-.bio.active {
-  max-height: 1000px;
-  opacity: 1;
-}
-
-/* CONTACT FIXE */
-footer {
+#bouncing-email {
   position: fixed;
-  bottom: 40px;
-  left: 40px;
-}
-
-#email {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: 0.3s;
-}
-
-#email.active {
-  max-height: 50px;
-  opacity: 1;
-  margin-top: 5px;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  body {
-    cursor: auto;
-  }
-
-  #cursor {
-    display: none;
-  }
-
-  .container {
-    flex-direction: column;
-  }
-
-  .preview {
-    position: static;
-    width: 100%;
-    height: auto;
-    margin-top: 10px;
-  }
-
-  footer {
-    position: static;
-    margin-top: 40px;
-  }
+  white-space: nowrap;
+  font-size: 18px;
+  font-weight: bold;
+  user-select: none;
+  z-index: 1000;
+  color: black;
 }
 </style>
 </head>
 
 <body>
 
-<div id="cursor"></div>
-
-<div class="container">
-
-<div class="left">
-
-<h1 onclick="toggleBio()">Fredj Moussa</h1>
-
-<div class="bio" id="bio">
-<p class="small">
-Born in 1992.
-</p>
-<p class="small">
-Lives and works in Tunisia.
-</p>
-<p class="small">
-He resided at Le Fresnoy from 2021 to 2023.
-In 2024, he is a resident at Villa Medici after which he settles in Tunisia.
-</p>
-<p class="small">
-Fredj Moussa’s practice unfolds at the intersection of film and sculpture. He creates landscapes where fiction becomes a mode of resistance. Through videos, and costumes made from discarded materials, he fabricates speculative narratives that blur the lines between document and myth.
-</p>
-<p class="small">
-Fredj Moussa's works has been presented in exhibitions such as the B7L9 Art Station in Tunis, Selebe Yoon gallery in Dakar, Nuit Blanche in Paris, Berlin Biennale, among others. 
-</p>
-<p class="small">
-  His films have been selected at several international festivals, most recently at the Toronto International Film Festival (TIFF).
-</p>
-<p class="small">
-Fredj Moussa receives the CIFRA prize at Loop Fair Barcelona in 2023 and the Award of the Best World Experimental Documentary Film at Jihlava IDFF in 2025. 
-</p>
-</div>
-
-<div class="films">
-<ul>
-
-<li onmouseenter="showImg('img/galacticjunkyard.jpeg')" onclick="toggleFilm(this)">
-<a>Galactic Junkyard (2026)</a>
-<div class="details">
-<p class="info">W/ Corentin Laplanche Tsutsui</p>
-<p class="info">20 min — digital & analog</p>
-<p class="info">(WIP)</p>
-<p class="description">
-In southwestern Tunisia, near an oasis on the edge of the desert, a mobile studio travels from place to place. Animated by strange masked figures, it welcomes passing tourists, transforming and disguising them for the occasion. Set against the backdrop of the industrial exploitation of Tunisian land and landscapes, from salt factories to Star Wars film sets, the film weaves a visual parallel between extractivism and cultural expropriation.  
-Adapted from Cities of Salt by Abdul Rahman Munif, the film follows local inhabitants as they subvert the role of extras to which they are often confined in tourist-driven film imaginaries, instead tracking visitors through the very sites used as shooting locations. From the crumbling facades of Mos Espa to the enigmatic installations of an artist in the Chott, an archaeology of the present gradually unfolds.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/thealienists.jpeg')" onclick="toggleFilm(this)">
-<a>The Alienists (2026)</a>
-<div class="details">
-<p class="info">11 min — analog</p>
-<p class="info">(WIP)</p>
-<p class="description">
-The Alienists is a hybrid video work that straddles the line between ethnographic documentary and speculative fiction. The video gradually shifts toward sci-fi: archaeologists and alienists from another era conduct imaginary excavations in the landscapes of the Sousse region in Tunisia, where they uncover strange fictional artifacts.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/landofbarbar.jpeg')" onclick="toggleFilm(this)">
-<a>Land of Barbar (2025)</a>
-<div class="details">
-<p class="info">11 min — analog</p>
-<p class="description">
-With the fable-like Land of Barbar, set and shot in Sousse, along the Tunisian coast, artist Fredj Moussa reimagines a passage from the Decameron detailing a confrontation between Italians and North Africans from the latter’s perspective.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/mirage.jpeg')" onclick="toggleFilm(this)">
-<a>Mirage (2024)</a>
-<div class="details">
-<p class="info">11 min — analog</p>
-<p class="description">
-Mirage, The Inner Sea is based on a true story from 1875, when a French colonial mission planned to flood the Sahara beneath the Mediterranean Sea. The film reimagines this historical situation, exploring its potential consequences. Set in Gabès (Tunisia), it depicts locals narrating the story of their submerged region over a century later.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/themascot.jpeg')" onclick="toggleFilm(this)">
-<a>The Mascot (2023)</a>
-<div class="details">
-<p class="info">10 min — digital</p>
-<p class="description">Labib is a mascot created in 1992 and used for twenty years as an environmental mascot in Tunisia. However, associated with the Ben Ali dictatorship, it was removed from its functions by the new Minister of the Environment after the Arab Spring revolution. In 2022, its return was officially announced.</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/solarnoon.jpeg')" onclick="toggleFilm(this)">
-<a>Solar Noon (2022)</a>
-<div class="details">
-<p class="info">11 min — analog</p>
-<p class="description">
-In North Africa, between the end of the Atlas Mountains and the Saharan plateau, a dry lake separates the Mashreq (east) from the Maghreb (west). Against all expectations, it is a landscape that is constantly changing. To its physical mutability, the director adds further layers by inserting fragments of three stories from Herodotus' Histories, traditional narratives and his own text, presenting them to viewers in the form of tableaux vivants laden with symbols and rituals.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-<li onmouseenter="showImg('img/Lifestyleof.jpg')" onclick="toggleFilm(this)">
-<a>Lifestyle of (2021)</a>
-<div class="details">
-<p class="info">5 min — digital</p>
-<p class="description">A mental map unbound by borders forms the backdrop of Lifestyle of. Set in a shifting, undefined space, the film follows two individuals from Ivory Coast living in Tunisia as they construct a fictional narrative rooted in their own experiences. Blurring the line between documentary and invention, the story unfolds in two parts: the imagined crossing of a desert on the back of a donkey that dies along the way, and the continuation of a journey toward France. Suspended between plausibility and fabrication, the film explores migration, storytelling, and the fragile boundary between lived reality and constructed myth.
-</p>
-<a href="#" target="_blank" class="small">Link</a>
-</div>
-</li>
-
-</ul>
-</div>
-
-<footer>
-<a onclick="toggleContact()">Contact</a>
-<div id="email">fredjmoussastudio@gmail.com</div>
-</footer>
-
-</div>
-
-<div class="right">
-<img id="preview" class="preview">
-</div>
-
-</div>
+<div id="bouncing-email">fredjmoussastudio@gmail.com</div>
 
 <script>
-const cursor = document.getElementById("cursor");
-let maxCursorSize = 120;
+const emailEl = document.getElementById("bouncing-email");
 
-document.addEventListener("mousemove", (e) => {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
-});
+let x = Math.random() * (window.innerWidth - 300);
+let y = Math.random() * (window.innerHeight - 50);
+let speedX = 2;
+let speedY = 2;
 
-function computeMaxSize() {
-  const descriptions = document.querySelectorAll(".description");
+const colors = [
+  "#FF0000", "#00FF00", "#0000FF", "#FF00FF", 
+  "#00FFFF", "#FFA500", "#FF1493", "#32CD32"
+];
 
-  descriptions.forEach(desc => {
-    const width = desc.offsetWidth;
-    const size = width * 1.1;
-
-    if (size > maxCursorSize) {
-      maxCursorSize = size;
-    }
-  });
-
-  cursor.style.width = maxCursorSize + "px";
-  cursor.style.height = maxCursorSize + "px";
+function getRandomColor() {
+  return colors[Math.floor(Math.random() * colors.length)];
 }
 
-function closeAll() {
-  document.querySelectorAll('.films li').forEach(li => li.classList.remove('active'));
-  document.getElementById("bio").classList.remove("active");
-  document.getElementById("email").classList.remove("active");
+function animateEmail() {
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.innerHeight;
+  const rect = emailEl.getBoundingClientRect();
+
+  x += speedX;
+  y += speedY;
+
+  // Collision horizontale
+  if (x + rect.width >= screenWidth || x <= 0) {
+    speedX = -speedX;
+    emailEl.style.color = getRandomColor();
+  }
+
+  // Collision verticale
+  if (y + rect.height >= screenHeight || y <= 0) {
+    speedY = -speedY;
+    emailEl.style.color = getRandomColor();
+  }
+
+  emailEl.style.left = x + "px";
+  emailEl.style.top = y + "px";
+
+  requestAnimationFrame(animateEmail);
 }
 
-function toggleFilm(el) {
-  const isOpen = el.classList.contains("active");
-  closeAll();
-  if (!isOpen) el.classList.add("active");
-}
-
-function toggleBio() {
-  const bio = document.getElementById("bio");
-  const isOpen = bio.classList.contains("active");
-  closeAll();
-  if (!isOpen) bio.classList.add("active");
-}
-
-function toggleContact() {
-  const email = document.getElementById("email");
-  const isOpen = email.classList.contains("active");
-  closeAll();
-  if (!isOpen) email.classList.add("active");
-}
-
-function showImg(src) {
-  const img = document.getElementById("preview");
-  img.src = src;
-  img.style.display = "block";
-}
-
-window.addEventListener("load", () => {
-  setTimeout(computeMaxSize, 100);
-});
+window.addEventListener("load", animateEmail);
 </script>
 
 </body>
